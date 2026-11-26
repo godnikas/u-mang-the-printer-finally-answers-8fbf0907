@@ -37,7 +37,9 @@ function main(): void {
   mkdirSync(outputDir, { recursive: true });
 
   const target = join(outputDir, "entry.txt");
-  writeFileSync(target, LINE + "\n", "utf8");
+  // Exactly the judged line: no trailing newline, so the file holds
+  // the 205 characters the gate counts and nothing else.
+  writeFileSync(target, LINE, "utf8");
 
   console.log(`wrote ${charCount} characters to ${target}`);
 }
